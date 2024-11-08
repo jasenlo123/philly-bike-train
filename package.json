@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/jasenlo123/philly-bike-train/issues"
   },
-  "homepage": "https://github.com/jasenlo123/philly-bike-train#readme"
+  "homepage": "https://github.com/jasenlo123/philly-bike-train#readme",
+  "dependencies": {
+    "@api/datawrapper": "file:.api/apis/datawrapper",
+    "playwright": "^1.48.2"
+  }
 }
