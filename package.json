@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/jasenlo123/philly-bike-train#readme",
   "dependencies": {
-    "@api/datawrapper": "file:.api/apis/datawrapper",
     "playwright": "^1.48.2"
   }
 }
