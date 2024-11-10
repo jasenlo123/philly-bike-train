@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "datawrapper",
+      "source": "@datawrapper/v3.0#17o217lxj664e4",
+      "integrity": "sha512-pymuxBExjvNLDO3f5FlGmgI3wSQ75KlpDFB3k8OfpeyKZMbH7DaTZLmGXaydu1lQrWgPlz646zdSBKK2d57SOQ==",
+      "installerVersion": "6.1.2"
+    }
+  ]
+}
