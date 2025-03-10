@@ -5,6 +5,8 @@
     <meta charset='utf-8' />
     <title>Philadelphia Bike Train Map</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+		<script type="text/javascript" src="//unpkg.com/maplibre-gl@5.0.1/dist/maplibre-gl.js"></script>
+		<link href="//unpkg.com/maplibre-gl@5.0.1/dist/maplibre-gl.css" rel="stylesheet" />
 </head>
 <body>
     <div id='pbt_map'></div>
@@ -20,10 +22,17 @@
 	import maplibregl from 'maplibre-gl'
 	const maptilerKey = (await import.meta.env.PUBLIC_MAPTILER)
 
-  var map = new maplibregl.Map({
+  const map = new maplibregl.Map({
       container: 'pbt_map',
       style: `https://api.maptiler.com/maps/dataviz/style.json?key=${maptilerKey}`,
       center: [-75.1652, 39.9526],
       zoom: 11
   });
+
+	map.addControl(new maplibregl.NavigationControl({
+        visualizePitch: true,
+        visualizeRoll: true,
+        showZoom: true,
+        showCompass: true
+    }));
 </script>
