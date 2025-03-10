@@ -21,18 +21,48 @@
 <script>
 	import maplibregl from 'maplibre-gl'
 	const maptilerKey = (await import.meta.env.PUBLIC_MAPTILER)
+	import routes from '../assets/routes.json';
 
+	console.log(routes)
+
+	// init maplibre-gl map with maptiler tiles
   const map = new maplibregl.Map({
-      container: 'pbt_map',
-      style: `https://api.maptiler.com/maps/dataviz/style.json?key=${maptilerKey}`,
-      center: [-75.1652, 39.9526],
-      zoom: 11
+		container: 'pbt_map',
+		style: `https://api.maptiler.com/maps/dataviz/style.json?key=${maptilerKey}`,
+		center: [-75.1652, 39.9526],
+		zoom: 11
   });
 
+	// maplibre map controls
 	map.addControl(new maplibregl.NavigationControl({
-        visualizePitch: true,
-        visualizeRoll: true,
-        showZoom: true,
-        showCompass: true
-    }));
+		visualizePitch: true,
+		visualizeRoll: true,
+		showZoom: true,
+		showCompass: true
+  }));
+
+	map.on('load', () => {
+
+		map.addSource('routes', {
+			type: 'geojson',
+			data: routes
+		});
+		
+		map.addLayer({
+  		id: 'routes',
+			source: 'routes',
+			type: 'line',
+			layout: {
+				'line-cap': "round",
+				'line-join': "round"
+  		},
+			paint: {
+				'line-color': "#6084eb",
+				'line-width': 8
+			}
+		})
+		
+	});
+
+
 </script>
