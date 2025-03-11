@@ -21,7 +21,7 @@
 <script>
 	import maplibregl from 'maplibre-gl'
 	const maptilerKey = (await import.meta.env.PUBLIC_MAPTILER)
-	import { routes } from '../assets/geoData.json';
+	import { routes, starts, end } from '../assets/geoData.json';
 
 	// init maplibre-gl map with maptiler tiles
   const map = new maplibregl.Map({
@@ -40,28 +40,113 @@
   }));
 
 	map.on('load', () => {
+		drawMapRoutes();
+		drawMapStarts();
+		drawMapEnd();
 
-		map.addSource('routes', {
+
+
+	});
+
+
+const drawMapRoutes = () => {
+	// add routes data to map
+	map.addSource('routes', {
 			type: 'geojson',
 			data: routes
 		});
-		
+
+	// draws the routes
+	map.addLayer({
+		id: 'routes',
+		source: 'routes',
+		type: 'line',
+		layout: {
+			'line-cap': "round",
+			'line-join': "round"
+		},
+		paint: {
+			'line-color': ['get', 'color'],
+			'line-opacity': 0.4,
+			'line-width': 10
+		}
+	})
+}
+
+const drawMapStarts = () => {
+	// add starts data to map
+	map.addSource('starts', {
+			type: 'geojson',
+			data: starts
+		});
+
+		// draw the circles
 		map.addLayer({
-  		id: 'routes',
-			source: 'routes',
-			type: 'line',
-			layout: {
-				'line-cap': "round",
-				'line-join': "round"
-  		},
+  		id: 'starts',
+			source: 'starts',
+			type: 'circle',
 			paint: {
-				'line-color': ['get', 'color'],
-				'line-opacity': 0.5,
-				'line-width': 8
+				'circle-radius': 15,
+				'circle-color': ['get', 'color']
 			}
 		})
-		
+
+		// draw the labels
+		map.addLayer({
+			id: 'starts-label',
+			source: 'starts',
+			type: 'symbol',
+			'paint': {
+				'text-color': '#222',
+				'text-opacity': 1,
+				"text-halo-color": '#FFF',
+				"text-halo-width": 1.5
+			},
+    'layout': {
+      'text-field': ['get', 'routeAbbrev'],
+      'text-font': ['Noto Sans Bold'],
+      'text-letter-spacing': 0.04,
+      'text-offset': [0, 0]
+    }
+  })
+}
+
+const drawMapEnd = () => {
+	map.addSource('end', {
+		type: 'geojson',
+		data: end
 	});
 
+	map.addLayer({
+  		id: 'end',
+			source: 'end',
+			type: 'circle',
+			paint: {
+				'circle-radius': 18,
+				'circle-stroke-color': '#000',
+				'circle-color': '#808080',
+				'circle-opacity': 0.5,
+				'circle-stroke-width': 2
+			}
+		})
+
+	map.addLayer({
+		id: 'end-label',
+		source: 'end',
+		type: 'symbol',
+		'paint': {
+			'text-color': '#222',
+			'text-opacity': 1,
+			"text-halo-color": '#FFF',
+			"text-halo-width": 1.5
+		},
+		'layout': {
+		'text-field': ['get', 'endLabel'],
+		'text-font': ['Noto Sans Bold'],
+		'text-letter-spacing': 0.04,
+		'text-offset': [0, 0]
+		}
+  })
+}
 
 </script>

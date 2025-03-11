@@ -3643,5 +3643,103 @@
         }
       }
     ]
+  },
+  "starts" : {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "routeName": "Fishtown",
+          "routeAbbrev": "F",
+          "color": "#FFD301"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.13259999999997,
+            39.97489000000007
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "routeName": "Brewerytown",
+          "routeAbbrev": "B",
+          "color": "#0096B0"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.17805999999996,
+            39.977640000000065
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "routeName": "Dickenson Square",
+          "routeAbbrev": "Se",
+          "color": "#CA6EE6"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.15080999999998,
+            39.92788000000007
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "routeName": "Wharton Square",
+          "routeAbbrev": "Sw",
+          "color": "#7FDA54"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.18324999999999,
+            39.93567000000007
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "routeName": "Clark Park",
+          "routeAbbrev": "W",
+          "color": "#EC7761"
+        },
+        "geometry":      {
+          "type": "Point",
+          "coordinates": [
+            -75.20930999999996,
+            39.94943000000006
+          ]
+        }
+      }
+    ]
+  },
+  "end" : {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "endLabel": "End"
+        },
+        "geometry":{
+          "type": "Point",
+          "coordinates": [
+            -75.16503999999998,
+            39.952530000000024
+          ]
+        }
+      }
+    ]
   }
 }

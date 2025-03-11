@@ -5,10 +5,11 @@ Map application for the Philly Bike Train which tracks bike train leader and rid
 ## To Do
 
 - [ ] Front-end
-  - [ ] Finialise routes data
-  - [ ] Handle loading states
+  - [x] Finialise routes data
   - [x] Drawing and loading routes
-  - [ ] Styling routes
+  - [x] Styling routes
+  - [ ] Load and style starting location icons, destination icons.
+  - [ ] Handle loading states
   - [ ] Map legend
   - [ ] App bar + other pages
   - [ ] Serving backend data logic
