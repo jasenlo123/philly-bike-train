@@ -21,9 +21,7 @@
 <script>
 	import maplibregl from 'maplibre-gl'
 	const maptilerKey = (await import.meta.env.PUBLIC_MAPTILER)
-	import routes from '../assets/routes.json';
-
-	console.log(routes)
+	import { routes } from '../assets/geoData.json';
 
 	// init maplibre-gl map with maptiler tiles
   const map = new maplibregl.Map({
@@ -57,7 +55,8 @@
 				'line-join': "round"
   		},
 			paint: {
-				'line-color': "#6084eb",
+				'line-color': ['get', 'color'],
+				'line-opacity': 0.5,
 				'line-width': 8
 			}
 		})
